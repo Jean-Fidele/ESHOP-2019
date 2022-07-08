@@ -140,29 +140,11 @@
     <Content Include="Images\cf41da77-207f-43eb-8496-83323e457a8c.jpg" />
     <Content Include="Images\ddbfd3a8-090d-47ec-a78c-04ab9bb77071.png" />
     <Content Include="Images\e0668329-92d2-4d49-8b81-b32c7af4c475.png" />
-    <Content Include="Models\EC\ECartDBModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ECartDBModel.edmx</DependentUpon>
-      <LastGenOutput>ECartDBModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\EC\ECartDBModel.edmx.sql" />
-    <Content Include="Models\EC\ECartDBModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ECartDBModel.edmx</DependentUpon>
-      <LastGenOutput>ECartDBModel.cs</LastGenOutput>
-    </Content>
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <EntityDeploy Include="Models\EC\ECartDBModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ECartDBModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\EC\ECartDBModel.edmx.diagram">
-      <DependentUpon>ECartDBModel.edmx</DependentUpon>
-    </Content>
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
@@ -193,41 +175,14 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\ShoppingController.cs" />
+    <Compile Include="Entities\Categories.cs" />
+    <Compile Include="Entities\ECartContext.cs" />
+    <Compile Include="Entities\Item.cs" />
+    <Compile Include="Entities\OrderDetail.cs" />
+    <Compile Include="Entities\Order.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Categories.cs" />
-    <Compile Include="Models\EC\Category.cs">
-      <DependentUpon>ECartDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EC\ECartDBModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ECartDBModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EC\ECartDBModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ECartDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EC\ECartDBModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ECartDBModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EC\Item.cs">
-      <DependentUpon>ECartDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EC\Order.cs">
-      <DependentUpon>ECartDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EC\OrderDetail.cs">
-      <DependentUpon>ECartDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Items.cs" />
-    <Compile Include="Models\ECartContext.cs" />
-    <Compile Include="Models\OrderDetails.cs" />
-    <Compile Include="Models\Orders.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\CategoryViewModel.cs" />
     <Compile Include="ViewModel\ItemViewModel.cs" />
@@ -253,6 +208,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

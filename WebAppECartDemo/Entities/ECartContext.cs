@@ -1,11 +1,12 @@
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 
-namespace WebAppECartDemo.Models
+
+namespace WebAppECartDemo.Entities
 {
-    public partial class ECartContext : DbContext
+    public class ECartContext : DbContext
     {
         public ECartContext()
             : base("name=ECartDemo")
@@ -13,9 +14,9 @@ namespace WebAppECartDemo.Models
         }
 
         public virtual DbSet<Categories> Categories { get; set; }
-        public virtual DbSet<Items> Items { get; set; }
-        public virtual DbSet<OrderDetails> OrderDetails { get; set; }
-        public virtual DbSet<Orders> Orders { get; set; }
+        public virtual DbSet<Item> Item { get; set; }
+        public virtual DbSet<OrderDetail> OrderDetails { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -27,15 +28,15 @@ namespace WebAppECartDemo.Models
                 .Property(e => e.CategoryName)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Items>()
+            modelBuilder.Entity<Item>()
                 .Property(e => e.ItemCode)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<OrderDetails>()
+            modelBuilder.Entity<OrderDetail>()
                 .Property(e => e.ItemId)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Orders>()
+            modelBuilder.Entity<Order>()
                 .Property(e => e.OrderNumber)
                 .IsUnicode(false);
 

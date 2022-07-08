@@ -3,24 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using WebAppECartDemo.Models;
+using WebAppECartDemo.Entities;
 using WebAppECartDemo.ViewModel;
 
 namespace WebAppECartDemo.Controllers
 {
     public class ShoppingController : Controller
     {
-        private ECartDBEntities objECartDbEntities;
+        private ECartContext objECartDbEntities;
         private List<ShoppingCartModel> listOfShoppingCartModels;
         public ShoppingController()
         {
-            objECartDbEntities = new ECartDBEntities();
+            objECartDbEntities = new ECartContext();
             listOfShoppingCartModels = new List<ShoppingCartModel>();
         }
         // GET: Shopping
         public ActionResult Index()
         {
-            IEnumerable<ShoppingViewModel> listOfShoppingViewModels = (from objItem in objECartDbEntities.Items
+            IEnumerable<ShoppingViewModel> listOfShoppingViewModels = (from objItem in objECartDbEntities.Item
                     join
                         objCate in objECartDbEntities.Categories
                         on objItem.CategoryId equals objCate.CategoryId
@@ -43,7 +43,7 @@ namespace WebAppECartDemo.Controllers
         public JsonResult Index(string ItemId)
         {
             ShoppingCartModel objShoppingCartModel = new ShoppingCartModel();
-            Item objItem = objECartDbEntities.Items.Single(model => model.ItemId.ToString() == ItemId);
+            Item objItem = objECartDbEntities.Item.Single(model => model.ItemId.ToString() == ItemId);
             if (Session["CartCounter"] != null)
             {
                 listOfShoppingCartModels = Session["CartItem"] as List<ShoppingCartModel>;

@@ -1,12 +1,12 @@
-namespace WebAppECartDemo.Models
-{
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.Spatial;
 
-    public partial class Items
+namespace WebAppECartDemo.Entities
+{
+    public class Item
     {
         [Key]
         public Guid ItemId { get; set; }
